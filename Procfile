@@ -1,0 +1,1 @@
+web: gunicorn flask_guessing_game:app
