@@ -1,10 +1,26 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <title>Number Guessing Game</title>
-</head>
-<body>
-  <h1>Welcome to the Number Guessing Game!</h1>
-  <p>Start guessing a number within your custom range!</p>
-</body>
-</html>
+{% extends "base.html" %}
+
+{% block content %}
+<h1 class="mb-4">🎮 Number Guessing Game 🎮</h1>
+<form method="POST" action="{{ url_for('start_game') }}">
+    <div class="mb-3">
+        <label for="player_name">Your Name:</label>
+        <input type="text" class="form-control" name="player_name" required>
+    </div>
+    <div class="row mb-3">
+        <div class="col">
+            <label for="min_num">Min Number:</label>
+            <input type="number" class="form-control" name="min_num" value="1" required>
+        </div>
+        <div class="col">
+            <label for="max_num">Max Number:</label>
+            <input type="number" class="form-control" name="max_num" value="100" required>
+        </div>
+    </div>
+    <div class="mb-3">
+        <label for="max_tries">Max Tries:</label>
+        <input type="number" class="form-control" name="max_tries" value="7" required>
+    </div>
+    <button type="submit" class="btn btn-primary">Start Game</button>
+</form>
+{% endblock %}
